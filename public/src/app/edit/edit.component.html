@@ -1,0 +1,30 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container">
+      <form (submit)="onEdit()">
+        <div class="form-group col-sm-4">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" placeholder="" name="title" [(ngModel)]="editProduct.title">
+          <!-- <p class="formError" *ngIf="editProduct.title.length < 4">*Title must be at least 4 characters long*</p> -->
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="price">Price</label>
+          <input type="text" class="form-control" name="price" [(ngModel)]="editProduct.price">
+          <!-- <p class="formError" *ngIf="!editProduct.price">*Price is required*</p> -->
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="image">Image</label>
+          <input type="text" class="form-control"  name="image" [(ngModel)]="editProduct.image">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+
+  </body>
+</html>

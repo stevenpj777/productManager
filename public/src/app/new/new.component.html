@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <style media="screen">
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <h2>Add new product</h2>
+      <form name="myForm" (submit)="addProduct()">
+        <div class="form-group col-sm-4">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" placeholder="" name="newProduct.title" [(ngModel)]="newProduct.title">
+          <p class="formError" *ngIf="newProduct.title.length < 4 && newProduct.title.length > 0">*Title must be at least 4 characters long*</p>
+        </div>
+
+        <div class="form-group col-sm-4">
+          <label for="price">Price</label>
+          <input type="text" class="form-control" name="newProduct.price" [(ngModel)]="newProduct.price">
+          <p class="formError" *ngIf="newProduct.price == '' && newProduct.price > 0">*Price is required*</p>
+        </div>
+
+        <div class="form-group col-sm-4">
+          <label for="image">Image</label>
+          <input type="text" class="form-control"  name="newProduct.image" [(ngModel)]="newProduct.image">
+        </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+</body>

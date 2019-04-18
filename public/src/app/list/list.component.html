@@ -1,0 +1,76 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <style media="screen">
+    .container {
+      display: flex;
+      justify-content: center;
+      background-color: aqua;
+
+      width: 100%;
+    }
+        .flex-carousel {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          width: 90%;
+          margin-top: 20px;
+        }
+
+
+        .frame {
+          /* opacity: 1; */
+          border: 3px solid gray;
+          border-radius: 5px;
+          background-color: gray;
+          margin: 5px 10px;
+        }
+        img {
+          width: 150px;
+          height: 150px;
+        }
+        .button {
+          margin: 0px 5px;
+        }
+    </style>
+  </head>
+<body>
+<div class="container">
+  <div class="flex-carousel">
+    <div class="frame" *ngFor="let product of products">
+      <img src={{product.image}} alt="Image of {{product.title}}">
+      <h3>{{product.title}}</h3>
+      <h4>${{product.price}}</h4>
+      <!-- <h4>${{product._id}}</h4> -->
+
+      <button class="button btn btn-danger" (click)="deleteProduct(product._id)">Delete</button>
+      <button class="button btn btn-primary" [routerLink]="['/product/edit/', product._id]">Edit</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Product Title</th>
+      <th>Product Price</th>
+      <!-- <th>Email</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products" [ngClass]="{ odd: odd, even: even }">
+        <td>{{product.title}}</td>
+        <td>{{product.price}}</td>
+        <button class="button btn btn-danger" (click)="deleteProduct(product._id)">Delete</button>
+        <button class="button btn btn-primary" [routerLink]="['/product/edit/', product._id]">Edit</button>
+
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
